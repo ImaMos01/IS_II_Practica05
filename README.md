@@ -10,6 +10,9 @@ Automatizar pruebas funcionales de aplicaciones web utilizando Selenium Web Driv
       ```bash
       npm init -y
       ```
+      
+    ![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/jason.png)
+      
   + Automaticamente nos crea el archivo package.json, el cual contiene las configuraciones del proyecto .
   + Posterior escribimos el siguiente comando en la terminal para instalar los controladores para los navegadores de Chrome y Firefox.
       ```bash
@@ -17,9 +20,15 @@ Automatizar pruebas funcionales de aplicaciones web utilizando Selenium Web Driv
       ```
   + Crea la carpeta modulos que almacenará las dependencias del Selenium Web Driver, además que se actualiza el package.json.
 
+    ![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/selenium.png)
+
+    ![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/actualizado.png)
+
 ## Actividad
 ### Casos de prueba
 Diagrama de los casos de prueba de la funcionalidad "Percentage Calculator".
+
+![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/casosPruebas.png)
 
 ### Script de prueba
 + Para la creación del script tomamos como base la página: https://www.tutorialspoint.com/selenium/selenium_webdriver.htm.
@@ -61,6 +70,12 @@ example();
 ### Resultados
 + Ejecución del código
 
+![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/ejec.png)
+
 + Ventana en Chrome
 
+![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/pagina.png)
+
 + Resultados en la terminal
+
+![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/resPrueba.png)
