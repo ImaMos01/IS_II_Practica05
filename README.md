@@ -116,7 +116,7 @@ test('Porcentaje dado dos arreglos',async ()=>{
 ### Resultados
 + Ejecución del código
 
-![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/ejec.png)
+![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/test.png)
 
 + Ventana en Chrome
 
@@ -124,4 +124,4 @@ test('Porcentaje dado dos arreglos',async ()=>{
 
 + Resultados en la terminal
 
-![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/resPrueba.png)
+![HI](https://github.com/ImaMos01/IS_II_Practica05/blob/main/imagenes/resultado.png)
