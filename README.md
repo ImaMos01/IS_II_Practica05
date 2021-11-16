@@ -38,33 +38,79 @@ Diagrama de los casos de prueba de la funcionalidad "Percentage Calculator".
 const {By,Key,Builder} = require("selenium-webdriver");
 require("chromedriver");
 
-async function example(){
-    var searchString = "Automation testing with Selenium";
+async function example(x,y){
+    var result;
  
     let driver = await new Builder().forBrowser("chrome").build();
     try{
-      await driver.get("http://www.calculator.net/");
+    await driver.get("http://www.calculator.net/");
 
-      await driver.findElement(By.xpath("/html/body/div[4]/div/table/tbody/tr/td[3]/div[2]/a")).click();
+    await driver.findElement(By.xpath("/html/body/div[4]/div/table/tbody/tr/td[3]/div[2]/a")).click();
 
-      await driver.findElement(By.xpath("/html/body/div[3]/div[1]/table[2]/tbody/tr/td/div[3]/a")).click();
+    await driver.findElement(By.xpath("/html/body/div[3]/div[1]/table[2]/tbody/tr/td/div[3]/a")).click();
 
-      await driver.findElement(By.id("cpar1")).sendKeys("uh");
+    await driver.findElement(By.id("cpar1")).sendKeys(y);
 
-      await driver.findElement(By.id("cpar2")).sendKeys("1pl");
+    await driver.findElement(By.id("cpar2")).sendKeys(x);
 
-      await driver.findElement(By.xpath(".//*[@id = 'content']/table/tbody/tr[2]/td/input[2]")).click();
+    await driver.findElement(By.xpath(".//*[@id = 'content']/table/tbody/tr[2]/td/input[2]")).click();
+ 
+    result = await driver.findElement(By.xpath("/html/body/div[3]/div[1]/p[2]/font/b")).getText();
 
-      var result = await driver.findElement(By.xpath("/html/body/div[3]/div[1]/p[2]/font/b")).getText();
-
-      console.log("the result is " + result);
+    //console.log("the result is " + result);
     }
     finally{
-      await driver.quit();
+    await driver.quit();
     }
+    
+    return result;
 }
 
-example();
+module.exports = example; 
+```
+
+### Integrar xUnit
++ Instalamos Jest.js para las pruebas necesarias.
+
+```bash
+      npm i -D jest
+```
++ Creamos las pruebas a realizar
+
+```js
+const porr = require('./calcu');
+
+test('Porcentaje dado dos enteros',async ()=>{
+    expect(await porr(50,10)).toBe("5");
+},10000);
+
+test('Porcentaje dado un entero y un decimal',async ()=>{
+    expect(await porr(50,10.50)).toBe("5.25");
+},10000);
+
+test('Porcentaje dado dos decimales',async ()=>{
+    expect(await porr(50.20,98.50)).toBe("49.447");
+},10000);
+
+test('Porcentaje cambiando el simbolo del decimal',async ()=>{
+    expect(await porr("50,20","98,50")).toBe("494470");
+},10000);
+
+test('Porcentaje dado dos valores vacios',async ()=>{
+    expect(await porr("","")).toBe("494470");
+},10000);
+
+test('Porcentaje dado un valor vacio y un entero',async ()=>{
+    expect(await porr("",10)).toBe("Please provide two numeric Values in any field below");
+},10000);
+
+test('Porcentaje dado un arreglo y un entero',async ()=>{
+    expect(await porr("1pl",10)).toBe("Please provide two numeric Values in any field below");
+},10000);
+
+test('Porcentaje dado dos arreglos',async ()=>{
+    expect(await porr("5iopp","huh7")).toBe("Please provide two numeric Values in any field below");
+},10000);
 ```
 
 ### Resultados
